@@ -143,6 +143,11 @@ function scrollSyncTocTree() {
   //   beforeOffsetTop = document.documentElement.scrollTop
   // })
 }
+const adjustH = ref(false)
+
+window.addEventListener('scroll', () => {
+  adjustH.value = !!window.scrollY
+})
 </script>
 <template>
   <el-main v-loading="essayLoading">
@@ -156,7 +161,7 @@ function scrollSyncTocTree() {
     </div>
   </el-main>
   <el-aside width="360px">
-    <el-affix :offset="110">
+    <el-affix :offset="140">
       <el-card>
         <template #header>
           <div class="card-header">
@@ -164,6 +169,7 @@ function scrollSyncTocTree() {
           </div>
         </template>
         <el-tree ref="tocTree"
+                 class="nav-tree"
                  :data="tocData"
                  node-key="id"
                  :default-expand-all="true"
@@ -185,34 +191,23 @@ function scrollSyncTocTree() {
       </el-card>
     </el-affix>
   </el-aside>
-  <el-backtop :visibility-height="0"
+  <!-- <el-backtop :visibility-height="0"
               :bottom="88"
               @click="router.back()">
     <el-icon>
       <Back />
     </el-icon>
-  </el-backtop>
+  </el-backtop> -->
   <el-backtop />
 </template>
 
 <style scoped>
-.el-aside {
-  display: grid;
-  row-gap: var(--el-font-line-height-primary);
-  height: fit-content;
-  padding: 0 40px 0 0;
-}
-/* :deep(.el-tree-node:focus > .el-tree-node__content) {
-  background-color: unset;
-} */
-.tag-card {
-  margin-top: var(--el-font-line-height-primary);
-}
 .el-main {
   display: grid;
   row-gap: var(--el-font-size-base);
   height: fit-content;
   padding: 40px;
+  padding-top: 20px;
   overflow: hidden;
 }
 .post-wrap {
@@ -238,6 +233,22 @@ function scrollSyncTocTree() {
 }
 :deep(.v-md-plugin-tip.tip) {
   background-color: var(--el-color-info-light-3);
+}
+:deep(.el-affix--fixed) {
+  transition: all 200ms;
+}
+.el-aside {
+  display: grid;
+  row-gap: var(--el-font-line-height-primary);
+  height: fit-content;
+  padding: 0 40px 0 0;
+}
+.tag-card {
+  margin-top: var(--el-font-line-height-primary);
+}
+.nav-tree {
+  max-height: 40vh;
+  overflow-y: auto;
 }
 .el-backtop {
   right: 20px !important;

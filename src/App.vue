@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router'
 import { useDark, useToggle } from '@vueuse/core'
 import { Sunny, Moon } from '@element-plus/icons-vue'
+import { ref } from 'vue'
 // import { onMounted } from 'vue'
 
 const router = useRouter()
@@ -20,12 +21,17 @@ isDark.value = nowHour < 6 || nowHour > 18
 //     }
 //   }).go()
 // })
+const adjustH = ref(false)
+
+window.addEventListener('scroll', () => {
+  adjustH.value = !!window.scrollY
+})
 </script>
 
 <template>
   <el-container class="page-wrap">
-    <el-header>
-      <a @click="router.push('/')">小码农日记</a>
+    <el-header :style="{ height: (adjustH ? '60px' : '120px') }">
+      <a @click="router.push('/')">jimi1126</a>
       <p id="typeIt"></p>
       <el-space>
         <el-icon>
@@ -102,6 +108,7 @@ html.dark {
     hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity))
   );
   z-index: 999;
+  transition: all 200ms;
 }
 
 .el-header a {
@@ -110,7 +117,7 @@ html.dark {
 }
 
 .page-main {
-  margin-top: 70px;
+  margin-top: 120px;
 }
 
 .el-footer {
