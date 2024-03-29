@@ -39,7 +39,8 @@ jobs:
         with:
           node-version: 16
       - name: Strict Install dependencies
-        run: npm i --ignore-scripts
+        run: npm ci --ignore-scripts
+      - run: npm i esbuild-linux-64 -D
       - name: Run build task
         run: npm run build
       - name: deploy pipelines
