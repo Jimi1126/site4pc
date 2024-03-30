@@ -17,7 +17,6 @@ import '@kangc/v-md-editor/lib/style/base-editor.css'
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js'
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css'
 
-import createMermaidPlugin from '@kangc/v-md-editor/lib/plugins/mermaid/cdn'
 import createLineNumbertPlugin from '@kangc/v-md-editor/lib/plugins/line-number/index'
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index'
 import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css'
@@ -33,8 +32,7 @@ import 'prismjs/components/prism-json'
 VueMarkdownEditor.use(vuepressTheme, {
   Prism
 })
-// markdown支持流程图
-VueMarkdownEditor.use(createMermaidPlugin())
+
 // markdown支持显示代码行数
 VueMarkdownEditor.use(createLineNumbertPlugin())
 // markdown支持代码快速复制

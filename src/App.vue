@@ -7,10 +7,9 @@ import { ref } from 'vue'
 
 const router = useRouter()
 const isDark = useDark()
-isDark.value = true
 const toggleDark = useToggle(isDark)
 const nowHour = new Date().getHours()
-isDark.value = nowHour < 6 || nowHour > 18
+isDark.value = nowHour > 6 && nowHour < 18
 // onMounted(() => {
 //   new TypeIt('#typeIt', {
 //     strings: ['真正的大师永远都怀着一颗学徒的心'],
@@ -48,7 +47,31 @@ window.addEventListener('scroll', () => {
       <router-view></router-view>
     </el-container>
     <el-footer>
-      @Auther by Jimmy
+      <el-space spacer="|">
+        <el-link :underline="false"
+                 type="info">Power By</el-link>
+        <el-link href="https://nodejs.org/en"
+                 type="info"
+                 target="_blank">nodejs</el-link>
+        <el-link href="https://cn.vuejs.org/"
+                 type="info"
+                 target="_blank">vue</el-link>
+        <el-link href="https://element-plus.org/zh-CN/"
+                 type="info"
+                 target="_blank">element</el-link>
+      </el-space>
+
+      <span>
+        <el-link :underline="false"
+                 type="info">©2024</el-link>&nbsp;
+        <el-link href="mailto:jimi1126_mid@163.com"
+                 type="info">jimi1126</el-link>
+      </span>
+      <span>
+        <el-link href="https://beian.miit.gov.cn/#/Integrated/index"
+                 type="info"
+                 target="_blank">桂ICP备2024026330号-1</el-link>
+      </span>
     </el-footer>
   </el-container>
 </template>
@@ -123,7 +146,7 @@ html.dark {
 .el-footer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: var(--el-font-size-base);
   color: var(--el-text-color-primary);
   background-color: var(--el-bg-color);
