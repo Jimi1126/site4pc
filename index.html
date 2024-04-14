@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark" theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jimi1126</title>
     <meta name="description" content="前端,JS" />
+    <script slot="https://polyfill.io/v3/polyfill.min.js"></script>
     <script>
       var _hmt = _hmt || []
       ;(function () {
@@ -16,8 +17,11 @@
       })()
     </script>
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="font-sans text-base text-gray-900 dark:text-gray-100">
+    <div
+      id="app"
+      class="flex flex-col items-center justify-between w-full overflow-x-hidden overflow-y-auto min-h-svh"
+    ></div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
