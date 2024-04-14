@@ -30,7 +30,7 @@
 </template>
 <script setup>
 import { inject } from 'vue'
-import Tree from './Tree.vue'
+import Tree from './RecurTree.vue'
 const props = defineProps(['data', 'clickNode'])
 const clickId = inject('clickId')
 function click(toc) {
