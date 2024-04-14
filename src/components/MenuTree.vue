@@ -12,7 +12,7 @@
 </template>
 <script>
 import { provide, ref } from 'vue'
-import Tree from './Tree.vue'
+import Tree from './RecurTree.vue'
 
 export default {
   components: {
