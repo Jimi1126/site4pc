@@ -37,21 +37,21 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]'
     }),
     splitVendorChunkPlugin(),
-    viteCompression({
-      verbose: true,
-      disable: false,
-      deleteOriginFile: true,
-      filter: new RegExp('.(js|mjs|json|css|ttf)$', 'i'),
-      threshold: 1024 * 5,
-      algorithm: 'gzip',
-      ext: '.gz'
-    }),
-    visualizer({
-      emitFile: false,
-      filename: 'stats.html',
-      open: true,
-      sourcemap: true
-    }),
+    // viteCompression({
+    //   verbose: true,
+    //   disable: false,
+    //   deleteOriginFile: true,
+    //   filter: new RegExp('.(js|mjs|json|css|ttf)$', 'i'),
+    //   threshold: 1024 * 5,
+    //   algorithm: 'gzip',
+    //   ext: '.gz'
+    // }),
+    // visualizer({
+    //   emitFile: false,
+    //   filename: 'stats.html',
+    //   open: true,
+    //   sourcemap: true
+    // }),
     importToCDN({
       modules: [
         autoComplete('vue'),
