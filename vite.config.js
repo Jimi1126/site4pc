@@ -40,9 +40,11 @@ export default defineConfig({
     viteCompression({
       verbose: true,
       disable: false,
-      threshold: 1024,
+      deleteOriginFile: true,
+      filter: new RegExp('.(js|mjs|json|css|ttf)$', 'i'),
+      threshold: 1024 * 5,
       algorithm: 'gzip',
-      deleteOriginFile: true
+      ext: '.gz'
     }),
     visualizer({
       emitFile: false,
