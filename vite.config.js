@@ -4,7 +4,6 @@ import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer } from 'rollup-plugin-visualizer'
-import { Plugin as importToCDN, autoComplete } from 'vite-plugin-cdn-import'
 import viteCompression from 'vite-plugin-compression'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import UnoCSS from 'unocss/vite'
@@ -36,7 +35,7 @@ export default defineConfig({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]'
     }),
-    splitVendorChunkPlugin(),
+    splitVendorChunkPlugin()
     // viteCompression({
     //   verbose: true,
     //   disable: false,
@@ -52,21 +51,6 @@ export default defineConfig({
     //   open: true,
     //   sourcemap: true
     // }),
-    importToCDN({
-      modules: [
-        autoComplete('vue'),
-        {
-          name: 'pinia',
-          var: 'pinia',
-          path: 'https://unpkg.com/pinia@2.1.7'
-        },
-        {
-          name: 'vue-router',
-          var: 'vue-router',
-          path: 'https://cdn.jsdelivr.net/npm/vue-router@4.2.5/dist/vue-router.global.min.js'
-        }
-      ]
-    })
   ],
   resolve: {
     alias: {
