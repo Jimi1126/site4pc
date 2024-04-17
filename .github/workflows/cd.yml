@@ -49,9 +49,9 @@ jobs:
           user: ${{ secrets.DC_USER }}
           pass: ${{ secrets.DC_PASS }}
           first_ssh: |
-            rm /www/wwwroot/web/vue/jimi1126/site/* -r --force
+            rm /www/wwwroot/server/web/blog/* -r --force
           scp: |
-            ./dist/* => /www/wwwroot/web/vue/jimi1126/site/
+            ./dist/* => /www/wwwroot/server/web/blog/
           last_ssh: |
             nginx -t
             nginx -s reload
